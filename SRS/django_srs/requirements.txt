@@ -3,3 +3,5 @@ djangorestframework
 Pillow
 pytz
 sqlparse
+pytest
+pytest-django
