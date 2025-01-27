@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success page</title>
+    <style>
+        body {
+            background-color: #AFD198; 
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background-color: inherit; /* Gray-900 */
+            border-radius: 1rem; /* Rounded */
+            overflow: hidden; /* Overflow hidden */
+            text-align: center;
+            padding: 2rem 1.25rem; /* Padding */
+        }
+        
+        .icon-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: 1.25rem; /* Margin bottom */
+            border-radius: 50%; /* Circular */
+        }
+        
+        .icon-container svg {
+            height: 3rem;
+            width: 3rem;
+        }
+        
+        h3 {
+            font-size: 2rem; /* Text size */
+            color: #333; /* Text gray-100 */
+            font-weight: 700; /* Font weight */
+        }
+        
+        h4 {
+            font-size: 1.5rem; /* Text size */
+            color: #333; /* Text gray-100 */
+            font-weight: 600; /* Font weight */
+            margin-bottom: 1.5rem; /* Margin bottom */
+        }
+        
+        p {
+            color: #222; /* Text gray-300 */
+            font-weight: 500; /* Font weight */
+        }
+        
+      
+        
+        .button {
+            margin: 0 0.5em;
+            display: inline-block;
+            padding: 0.75rem 1.25rem; /* Padding */
+            margin-bottom: 0.5rem; /* Margin bottom */
+            font-weight: 600; /* Font weight */
+            border-radius: 0.5rem; /* Rounded */
+            transition: background-color 0.2s; /* Transition */
+            text-decoration: none; /* No underline */
+        }
+        
+        .button.cancel {
+            background-color: #5a5a5a; /* Gray-500 */
+            color: #e5e7eb; /* Gray-200 */
+        }
+        
+        .button.cancel:hover {
+            background-color: #1d1d1d; /* Gray-400 */
+        }
+        
+        .button.confirm {
+            background-color: #10b301; /* Green-500 */
+            color: #f0f9ff; /* Blue-50 */
+        }
+        
+        .button.confirm:hover {
+            background-color: #01751b; /* Green-600 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon-container">
+            <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <circle fill="#10b301" r="18.5" cy="24" cx="24"></circle>
+                <path d="M35.401,38.773C32.248,41.21,28.293,42.66,24,42.66C13.695,42.66,5.34,34.305,5.34,24c0-2.648,0.551-5.167,1.546-7.448" 
+                      stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#10b301" fill="none"></path>
+                <path d="M12.077,9.646C15.31,6.957,19.466,5.34,24,5.34c10.305,0,18.66,8.354,18.66,18.66c0,2.309-0.419,4.52-1.186,6.561" 
+                      stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#10b301" fill="none"></path>
+                <polyline points="16.5,23.5 21.5,28.5 32,18" 
+                          stroke-width="3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#fff" fill="none"></polyline>
+            </svg>
+        </div>
+        <h3>Congratulations !</h3>
+        <h4>You have completed your Registration !</h4>
+        <p>Your payment has been successfully made.</p>
+        <div class="footer">
+            <a href="{% url 'home' %}" class="button cancel">Go back to home</a>
+            <a href="{% url 'student_list' %}" class="button confirm">Done</a>
+        </div>
+    </div>
+</body>
+</html>

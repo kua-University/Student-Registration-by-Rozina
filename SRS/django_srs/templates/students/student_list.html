@@ -7,7 +7,7 @@
 
 <div class="row" >
     <div class="col-lg-12" >
-        <div class="card" >
+        <div class="card2" style="background-color: #AFD198;  margin: 0; padding: 3%;" >
             <div class="card-header">
                 <i class="fa fa-align-justify"></i> Students List</div>
             <div class="card-body">
@@ -35,12 +35,6 @@
                                 <td class="text-center">
                                     <a href="{% url 'single_student' student.id %}">
                                         <button type="button" class="btn btn-light border btn-sm"><i class="fa fa-eye text-dark"></i></button>
-                                    </a>
-                                    <a href="{% url 'edit_student' student.id %}">
-                                        <button type="button" class="btn btn-success btn-sm"><i class="fa fa-edit text-white"></i></button>
-                                    </a>
-                                    <a href="{% url 'delete_student' student.id %}">
-                                        <button type="button" class="btn btn-danger btn-sm" onclick="if(confirm('Are you sure to delete this student?') === false) event.preventDefault()"><i class="fa fa-trash"></i></button>
                                     </a>
                                 </td>
                             </tr>
