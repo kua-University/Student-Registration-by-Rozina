@@ -31,8 +31,7 @@ def student_regi(request):
 
         if forms.is_valid():
             forms.save()
-        messages.success(request, "Student Registration Successfully!")
-        return redirect("student_list")
+        return redirect("payment")
     else:
         forms = CreateStudent()
 

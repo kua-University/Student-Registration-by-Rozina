@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>payment</title>
+    <style>
+        .card {
+            margin-top: 5%;
+            margin-left: 25%;
+            margin-right: 25%;
+            border-radius: 20px;
+            transition: all 0.3s;
+            background-image: linear-gradient(163deg, #33ff00 0%, #999999 100%);
+        }
+
+        .card2 {
+            padding-top: 10%;
+            padding-bottom: 15%;
+            padding-right: 10%;
+            padding-left: 10%;
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+
+        input {
+            width: 75%;
+            margin: 2% auto;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            padding: 1em;
+            background-color: #999;
+            transition: 300ms ease-in-out;
+            color: #000;
+        }
+
+        input::placeholder {
+            color: #000;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: 0.6s;
+            box-shadow: 0px 0px 60px #007a25;
+            -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+        }
+    </style>
+</head>
+
+<body style="background-color: #AFD198">
+    <div class="card" style="width: 35%; margin: 5% auto">
+        <div class="card2" style="background-color: #294b29">
+            <h1 style="color: #dddd; text-align: center; margin-bottom: 10%">
+                You are one step away
+            </h1>
+            <form method="POST" action="https://api.chapa.co/v1/hosted/pay">
+                <input type="hidden" name="public_key" value="CHAPUBK_TEST-W3Wah3ImXSEdLMfUSZbJTBTON771tLxY" />
+                <input type="hidden" name="tx_ref" id="tx_ref" value="uniqueid" />
+                <input type="hidden" name="amount"  value="{{amount}}" />
+                <input type="hidden" name="currency"  value="ETB" />
+                <input type="text" autocomplete="off" name="first_name" required placeholder="Enter your First name"
+                    onfocus="this.style.backgroundColor='#ccc'; " onblur="this.style.backgroundColor='#555'; 
+                        this.style.transform='scale(1.05)'; 
+                       this.style.transform='scale(1)'; " />
+
+                <input type="text" autocomplete="off" name="last_name" required placeholder="Enter your Last name"
+                    onfocus="this.style.backgroundColor='#ccc'; " onblur="this.style.backgroundColor='#555'; 
+  this.style.transform='scale(1.05)'; 
+ this.style.transform='scale(1)'; " />
+                <input type="email" autocomplete="off" name="email" required placeholder="Enter your Email address"
+                    onfocus="this.style.backgroundColor='#ccc'; " onblur="this.style.backgroundColor='#555'; 
+                  this.style.transform='scale(1.05)'; 
+                 this.style.transform='scale(1)'; " /><br />
+
+                <input type="hidden" name="title" value="Let us do this" />
+                <input type="hidden" name="description" value="Paying with Confidence with cha" />
+                <input type="hidden" name="logo" value="https://chapa.link/asset/images/chapa_swirl.svg" />
+                <input type="hidden" name="callback_url" value="http://127.0.0.1:8000/" />
+                <input type="hidden" name="return_url" value="http://127.0.0.1:8000/payment/next/" />
+                <input type="hidden" name="meta[title]" value="test" />
+                <button type="submit" class="btn" onclick="call()" style="
+             margin: 5% auto;
+              width: 100%;
+              background-color: #33ff00;
+              color: #000;
+              border: none;
+              cursor: pointer;
+              transition: background-color 0.3s;
+            ">
+                    Pay Now
+                </button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var unique = document.getElementById("tx_ref");
+        function call() {
+            var uniqueid = "negade-tx-" + Math.random().toString(16).slice(2);
+            console.log(uniqueid);
+            unique.value = uniqueid;
+        }
+        const card = document.querySelector(".card");
+        const card2 = document.querySelector(".card2");
+
+        card.addEventListener("mouseenter", () => {
+            card.style.boxShadow = "0px 0px 30px 1px rgba(255, 255, 117, 0.30)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.boxShadow = "none";
+        });
+
+        card2.addEventListener("mouseenter", () => {
+            card2.style.transform = "scale(0.98)";
+        });
+
+        card2.addEventListener("mouseleave", () => {
+            card2.style.transform = "scale(1)";
+        });
+    </script>
+</body>
+
+</html>

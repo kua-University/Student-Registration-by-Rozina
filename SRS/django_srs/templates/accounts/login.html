@@ -4,42 +4,57 @@
 
 {% include 'base/header.html' %}
 
-<body class="app flex-row justify-content-center align-items-center" style="background-color: #DBE7C9;">
-    <div class="container" >
-        <div class="justify-self-center w-50" >
-                <div class="card-group" >
-                    <div class="card p-4" style="background-color:#294B29 ;">
-                        <div class="card-body" >
-                            <h1 class="text-light">Login</h1>
-                            <p class="text-secondary">Sign In to your account</p>
-                            {% include 'partials/_alerts.html' %}
-                            <form action="" method="POST">
-                                {% csrf_token %}
-                                {% for field in forms %}
-                                    <div class="input-group mb-3">
-                                        {{ field }}
-                                        <div class="input-group-prepend py-2 border px-2 bg-light">
-                                            <span class="input-group-text">
-                                                <i class="{% if forloop.counter == 1 %}icon-user{% else %}icon-key{% endif %}"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                {% endfor %}
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <input type="submit" class="btn px-4 text-light" style="background-color:#789461 ;" value="Login">
-                                    </div>
-                                
-                            </form>
-                        </div>
+<body style="background-color: #AFD198;">
+    <div class="card" style="width: 35%; margin: 10% auto">
+        <div class="card2" style="background-color: #294b29">
+            <h1 style="color: #ccc; text-align: center; margin-bottom: 10% ;">
+                Log In to your account </h1>
+            {% include 'partials/_alerts.html' %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                {% for field in forms %}
+                <div class="input-group mb-3">
+                    {{ field }}
+                    <div class="input-group-prepend py-2 border px-2 bg-light">
+                        <span class="input-group-text">
+                            <i class="{% if forloop.counter == 1 %}icon-user{% else %}icon-key{% endif %}"></i>
+                        </span>
                     </div>
-            </div>
+                </div>
+                {% endfor %}
+
+                <div class="row">
+                    <div class="col-6">
+                        <input type="submit" class="btn px-4 text-light  " style="margin-top: 10%; background-color:#10b301; border-radius: 10px;"
+                            value="Login">
+                    </div>
+
+            </form>
+        </div>
+    </div>
     </div>
 
     {% include 'base/js.html' %}
+    <script>
+        const card = document.querySelector(".card");
+        const card2 = document.querySelector(".card2");
 
+        card.addEventListener("mouseenter", () => {
+            card.style.boxShadow = "0px 0px 30px 1px rgba(255, 255, 117, 0.30)";
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.boxShadow = "none";
+        });
+
+        card2.addEventListener("mouseenter", () => {
+            card2.style.transform = "scale(0.98)";
+        });
+
+        card2.addEventListener("mouseleave", () => {
+            card2.style.transform = "scale(1)";
+        });
+    </script>
 </body>
 
 </html>
-

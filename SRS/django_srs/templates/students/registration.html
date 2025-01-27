@@ -5,18 +5,21 @@
 
 {% include 'partials/_alerts.html' %}
 
-<div class="card">
-    <div class="card-header">
-        <h2>Student Registration Form</h2>
-    </div>
-    <div class="card-body">
+<div class="card2" style="background-color: #AFD198; margin: 0 auto; padding: 3%; width: 50%;">
+    <h1 style=" text-align: center;">
+Student Registration Form    </h1>   
+ <div class="card-body">
         <form action="" method="POST">
-        {% csrf_token %}
-        {{ forms.as_p }}
-        <button type="submit" class="btn btn-outline-success">Submit</button>
+            {% csrf_token %}
+            {{ forms.as_p }}
+                <button type="submit"  style="background-color: #1a1a1a; border-radius: 10px; color: #fff; padding: 2% 4%;">Register</button>
         </form>
+        {% if registration_success %}
+        <a href="{% url 'payment' %}">
+            <button type="button">Go to Payment</button>
+        </a>
+    {% endif %}
     </div>
 </div>
 
 {% endblock %}
-
